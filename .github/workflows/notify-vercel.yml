@@ -2,7 +2,7 @@ name: Notify Main Repo
 on:
   push:
     branches:
-      - slug
+      - main
 jobs:
   notify:
     runs-on: ubuntu-latest
