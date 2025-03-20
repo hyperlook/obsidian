@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <!-- 样式定义 -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+    </marker>
+    <style>
+      .title { font-size: 20px; font-weight: bold; font-family: Arial, sans-serif; }
+      .subtitle { font-size: 16px; font-family: Arial, sans-serif; }
+      .box { fill: #f0f0f0; stroke: #333; stroke-width: 2; rx: 5; ry: 5; }
+      .box-highlight { fill: #e6f7ff; stroke: #1890ff; stroke-width: 2; rx: 5; ry: 5; }
+      .box-warning { fill: #fff7e6; stroke: #faad14; stroke-width: 2; rx: 5; ry: 5; }
+      .box-success { fill: #f6ffed; stroke: #52c41a; stroke-width: 2; rx: 5; ry: 5; }
+      .arrow { stroke: #333; stroke-width: 2; marker-end: url(#arrowhead); }
+      .text { font-size: 14px; font-family: Arial, sans-serif; }
+      .code { font-size: 12px; font-family: 'Courier New', monospace; fill: #333; }
+      .note { font-size: 12px; font-style: italic; font-family: Arial, sans-serif; fill: #666; }
+    </style>
+  </defs>
+
+  <!-- 标题 -->
+  <text x="400" y="40" text-anchor="middle" class="title">Git 中修改 .gitignore 的工作流程</text>
+  <text x="400" y="65" text-anchor="middle" class="subtitle">为什么修改 .gitignore 后已提交文件仍显示有改动</text>
+
+  <!-- 初始状态 -->
+  <rect x="100" y="100" width="200" height="80" class="box" />
+  <text x="200" y="130" text-anchor="middle" class="text">初始状态</text>
+  <text x="200" y="155" text-anchor="middle" class="note">文件已被 Git 跟踪</text>
+
+  <!-- 修改 .gitignore -->
+  <rect x="100" y="230" width="200" height="80" class="box-highlight" />
+  <text x="200" y="260" text-anchor="middle" class="text">修改 .gitignore</text>
+  <text x="200" y="285" text-anchor="middle" class="note">添加文件到忽略列表</text>
+
+  <!-- 问题状态 -->
+  <rect x="100" y="360" width="200" height="80" class="box-warning" />
+  <text x="200" y="390" text-anchor="middle" class="text">问题状态</text>
+  <text x="200" y="415" text-anchor="middle" class="note">git status 仍显示文件有改动</text>
+
+  <!-- 解决方案 -->
+  <rect x="100" y="490" width="200" height="80" class="box-success" />
+  <text x="200" y="520" text-anchor="middle" class="text">解决方案</text>
+  <text x="200" y="545" text-anchor="middle" class="note">使用 git rm --cached 移除跟踪</text>
+
+  <!-- 右侧说明 -->
+  <rect x="400" y="100" width="300" height="80" class="box" />
+  <text x="550" y="130" text-anchor="middle" class="text">Git 已跟踪文件</text>
+  <text x="550" y="155" text-anchor="middle" class="note">文件已通过 git add/commit 添加到版本库</text>
+
+  <rect x="400" y="230" width="300" height="80" class="box-highlight" />
+  <text x="550" y="255" text-anchor="middle" class="text">.gitignore 只对未跟踪文件生效</text>
+  <text x="550" y="280" text-anchor="middle" class="note">已跟踪文件不受 .gitignore 影响</text>
+
+  <rect x="400" y="360" width="300" height="80" class="box-warning" />
+  <text x="550" y="380" text-anchor="middle" class="text">Git 继续跟踪文件变化</text>
+  <text x="550" y="405" text-anchor="middle" class="note">因为文件已在版本控制中</text>
+
+  <rect x="400" y="490" width="300" height="80" class="box-success" />
+  <text x="550" y="510" text-anchor="middle" class="text">停止跟踪并提交更改</text>
+  <text x="550" y="535" text-anchor="middle" class="code">git rm -r --cached &lt;文件&gt;</text>
+  <text x="550" y="555" text-anchor="middle" class="code">git commit -m "停止跟踪文件"</text>
+
+  <!-- 连接箭头 -->
+  <line x1="200" y1="180" x2="200" y2="230" class="arrow" />
+  <line x1="200" y1="310" x2="200" y2="360" class="arrow" />
+  <line x1="200" y1="440" x2="200" y2="490" class="arrow" />
+
+  <line x1="300" y1="140" x2="400" y2="140" class="arrow" />
+  <line x1="300" y1="270" x2="400" y2="270" class="arrow" />
+  <line x1="300" y1="400" x2="400" y2="400" class="arrow" />
+  <line x1="300" y1="530" x2="400" y2="530" class="arrow" />
+</svg>

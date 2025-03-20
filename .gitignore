@@ -1,0 +1,41 @@
+# Obsidian 配置文件
+.obsidian/
+.trash/
+.makemd/
+.space/
+
+# Obsidian 工作区文件
+workspace.json
+workspace
+
+# 移动设备文件
+.DS_Store
+._.DS_Store
+**/.DS_Store
+**/._.DS_Store
+
+# 临时文件
+*.temp
+*.tmp
+~*
+
+# 同步冲突文件
+*.conflict
+
+# 缓存文件
+.cache/
+
+# 如果使用了 Obsidian 发布功能，可能需要忽略以下文件
+01-Inbox/
+代码库/
+文档/
+Tags/
+zz-Templater/
+
+# 如果不想同步 PDF 等附件，可以取消下面的注释
+# *.pdf
+# *.mp4
+# *.mov
+# *.mp3
+# *.zip
+# *.7z

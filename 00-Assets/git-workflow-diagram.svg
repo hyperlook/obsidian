@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <!-- 背景 -->
+  <rect width="800" height="500" fill="#f5f5f5"/>
+  
+  <!-- 标题 -->
+  <text x="400" y="40" font-family="Arial" font-size="24" text-anchor="middle" font-weight="bold">Git 工作流程与命令关系图</text>
+  
+  <!-- 工作区域 -->
+  <rect x="50" y="100" width="170" height="130" rx="10" fill="#e1f5fe" stroke="#2196f3" stroke-width="2"/>
+  <text x="135" y="125" font-family="Arial" font-size="18" text-anchor="middle" font-weight="bold">工作区</text>
+  <text x="135" y="150" font-family="Arial" font-size="14" text-anchor="middle">(Working Directory)</text>
+  <text x="135" y="180" font-family="Arial" font-size="12" text-anchor="middle">当前文件系统中的文件</text>
+  <text x="135" y="200" font-family="Arial" font-size="12" text-anchor="middle">你直接编辑的地方</text>
+  
+  <!-- 暂存区 -->
+  <rect x="320" y="100" width="170" height="130" rx="10" fill="#e8f5e9" stroke="#4caf50" stroke-width="2"/>
+  <text x="405" y="125" font-family="Arial" font-size="18" text-anchor="middle" font-weight="bold">暂存区</text>
+  <text x="405" y="150" font-family="Arial" font-size="14" text-anchor="middle">(Staging Area)</text>
+  <text x="405" y="180" font-family="Arial" font-size="12" text-anchor="middle">准备提交的修改</text>
+  <text x="405" y="200" font-family="Arial" font-size="12" text-anchor="middle">也称为索引(Index)</text>
+  
+  <!-- 本地仓库 -->
+  <rect x="590" y="100" width="170" height="130" rx="10" fill="#fff3e0" stroke="#ff9800" stroke-width="2"/>
+  <text x="675" y="125" font-family="Arial" font-size="18" text-anchor="middle" font-weight="bold">本地仓库</text>
+  <text x="675" y="150" font-family="Arial" font-size="14" text-anchor="middle">(Local Repository)</text>
+  <text x="675" y="180" font-family="Arial" font-size="12" text-anchor="middle">提交历史</text>
+  <text x="675" y="200" font-family="Arial" font-size="12" text-anchor="middle">.git 文件夹</text>
+  
+  <!-- 远程仓库 -->
+  <rect x="590" y="320" width="170" height="130" rx="10" fill="#f3e5f5" stroke="#9c27b0" stroke-width="2"/>
+  <text x="675" y="345" font-family="Arial" font-size="18" text-anchor="middle" font-weight="bold">远程仓库</text>
+  <text x="675" y="370" font-family="Arial" font-size="14" text-anchor="middle">(Remote Repository)</text>
+  <text x="675" y="400" font-family="Arial" font-size="12" text-anchor="middle">GitHub/GitLab等</text>
+  <text x="675" y="420" font-family="Arial" font-size="12" text-anchor="middle">托管的代码仓库</text>
+  
+  <!-- 箭头和命令 -->
+  <!-- 工作区 -> 暂存区 -->
+  <path d="M220 150 L320 150" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="270" y="140" font-family="Arial" font-size="14" text-anchor="middle" fill="#333">git add</text>
+  
+  <!-- 暂存区 -> 工作区 -->
+  <path d="M320 180 L220 180" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="270" y="200" font-family="Arial" font-size="14" text-anchor="middle" fill="#333">git restore --staged</text>
+  
+  <!-- 暂存区 -> 本地仓库 -->
+  <path d="M490 150 L590 150" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="540" y="140" font-family="Arial" font-size="14" text-anchor="middle" fill="#333">git commit</text>
+  
+  <!-- 本地仓库 -> 远程仓库 -->
+  <path d="M675 230 L675 320" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="730" y="275" font-family="Arial" font-size="14" text-anchor="middle" fill="#333">git push</text>
+  
+  <!-- 远程仓库 -> 本地仓库 -->
+  <path d="M635 320 L635 230" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="585" y="275" font-family="Arial" font-size="14" text-anchor="middle" fill="#333">git fetch</text>
+  
+  <!-- 本地仓库 -> 工作区 -->
+  <path d="M590 200 C400 280 230 250 160 230" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="320" y="280" font-family="Arial" font-size="14" text-anchor="middle" fill="#333">git checkout/git switch</text>
+  
+  <!-- 常用命令列表 -->
+  <rect x="50" y="320" width="440" height="130" rx="10" fill="#ede7f6" stroke="#673ab7" stroke-width="2"/>
+  <text x="270" y="345" font-family="Arial" font-size="18" text-anchor="middle" font-weight="bold">常用 Git 命令</text>
+  
+  <!-- 左列命令 -->
+  <text x="120" y="375" font-family="Arial" font-size="12" text-anchor="middle">git init - 初始化仓库</text>
+  <text x="120" y="395" font-family="Arial" font-size="12" text-anchor="middle">git clone - 克隆仓库</text>
+  <text x="120" y="415" font-family="Arial" font-size="12" text-anchor="middle">git status - 查看状态</text>
+  <text x="120" y="435" font-family="Arial" font-size="12" text-anchor="middle">git log - 查看提交历史</text>
+  
+  <!-- 中列命令 -->
+  <text x="270" y="375" font-family="Arial" font-size="12" text-anchor="middle">git branch - 分支管理</text>
+  <text x="270" y="395" font-family="Arial" font-size="12" text-anchor="middle">git merge - 合并分支</text>
+  <text x="270" y="415" font-family="Arial" font-size="12" text-anchor="middle">git rebase - 变基操作</text>
+  <text x="270" y="435" font-family="Arial" font-size="12" text-anchor="middle">git stash - 临时保存修改</text>
+  
+  <!-- 右列命令 -->
+  <text x="420" y="375" font-family="Arial" font-size="12" text-anchor="middle">git diff - 查看差异</text>
+  <text x="420" y="395" font-family="Arial" font-size="12" text-anchor="middle">git reset - 重置操作</text>
+  <text x="420" y="415" font-family="Arial" font-size="12" text-anchor="middle">git pull - 拉取并合并</text>
+  <text x="420" y="435" font-family="Arial" font-size="12" text-anchor="middle">git tag - 标签管理</text>
+  
+  <!-- 箭头标记定义 -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333"/>
+    </marker>
+  </defs>
+</svg>
