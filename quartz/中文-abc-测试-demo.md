@@ -18,4 +18,4 @@ permalink: custom-slug
 
 - 我的第一篇文章
 ---
-测试推送
+测试推送22
