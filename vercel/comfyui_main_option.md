@@ -6,198 +6,160 @@ tags:
   - AI
 created: 2025-03-22 17:36
 ---
-usage: main.py [-h] [--listen [IP]] [--port PORT] [--tls-keyfile TLS_KEYFILE]
-               [--tls-certfile TLS_CERTFILE] [--enable-cors-header [ORIGIN]]
-               [--max-upload-size MAX_UPLOAD_SIZE]
-               [--base-directory BASE_DIRECTORY]
-               [--extra-model-paths-config PATH [PATH ...]]
-               [--output-directory OUTPUT_DIRECTORY]
-               [--temp-directory TEMP_DIRECTORY]
-               [--input-directory INPUT_DIRECTORY] [--auto-launch]
-               [--disable-auto-launch] [--cuda-device DEVICE_ID]
-               [--cuda-malloc | --disable-cuda-malloc]
-               [--force-fp32 | --force-fp16]
-               [--fp32-unet | --fp64-unet | --bf16-unet | --fp16-unet | --fp8_e4m3fn-unet | --fp8_e5m2-unet]
-               [--fp16-vae | --fp32-vae | --bf16-vae] [--cpu-vae]
-               [--fp8_e4m3fn-text-enc | --fp8_e5m2-text-enc | --fp16-text-enc | --fp32-text-enc]
-               [--force-channels-last] [--directml [DIRECTML_DEVICE]]
-               [--oneapi-device-selector SELECTOR_STRING]
-               [--disable-ipex-optimize]
-               [--preview-method [none,auto,latent2rgb,taesd]]
-               [--preview-size PREVIEW_SIZE]
-               [--cache-classic | --cache-lru CACHE_LRU]
-               [--use-split-cross-attention | --use-quad-cross-attention | --use-pytorch-cross-attention | --use-sage-attention | --use-flash-attention]
-               [--disable-xformers]
-               [--force-upcast-attention | --dont-upcast-attention]
-               [--gpu-only | --highvram | --normalvram | --lowvram | --novram | --cpu]
-               [--reserve-vram RESERVE_VRAM]
-               [--default-hashing-function {md5,sha1,sha256,sha512}]
-               [--disable-smart-memory] [--deterministic] [--fast [FAST ...]]
-               [--dont-print-server] [--quick-test-for-ci]
-               [--windows-standalone-build] [--disable-metadata]
-               [--disable-all-custom-nodes] [--multi-user]
-               [--verbose [{DEBUG,INFO,WARNING,ERROR,CRITICAL}]]
-               [--log-stdout] [--front-end-version FRONT_END_VERSION]
-               [--front-end-root FRONT_END_ROOT]
-               [--user-directory USER_DIRECTORY]
-               [--enable-compress-response-body]
+| 选项                           | 描述                                                                                                                                                                                                                         |
+|----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `-h, --help`                     | 显示此帮助信息并退出。                                                                                                                                                                                                    |
+| `--listen [IP]`                  | 指定监听的IP地址（默认：127.0.0.1）。可以使用逗号分隔多个IP地址。如果没有提供参数，则默认为0.0.0.0,::（监听所有IPv4和IPv6）。                |
+| `--port PORT`                    | 设置监听端口。                                                                                                                                                                                                                |
+| `--tls-keyfile TLS_KEYFILE`      | TLS (SSL) 密钥文件路径。启用TLS，使应用程序可通过https://...访问。需要同时提供--tls-certfile。                                                                                                                      |
+| `--tls-certfile TLS_CERTFILE`    | TLS (SSL) 证书文件路径。启用TLS，使应用程序可通过https://...访问。需要同时提供--tls-keyfile。                                                                                                                |
+| `--enable-cors-header [ORIGIN]`  | 启用CORS（跨域资源共享），可选指定来源或默认允许所有来源'*'。                                                                                                                                       |
+| `--max-upload-size MAX_UPLOAD_SIZE` | 设置最大上传文件大小（MB）。                                                                                                                                                                                              |
+| `--base-directory BASE_DIRECTORY`| 设置ComfyUI基础目录，用于models、custom_nodes、input、output、temp和user目录。                                                                                                                                   |
+| `--extra-model-paths-config PATH [PATH ...]` | 加载一个或多个extra_model_paths.yaml文件。                                                                                                                                                                         |
+| `--output-directory OUTPUT_DIRECTORY` | 设置ComfyUI输出目录。覆盖--base-directory。                                                                                                                                                                 |
+| `--temp-directory TEMP_DIRECTORY`| 设置ComfyUI临时目录（默认在ComfyUI目录中）。覆盖--base-directory。                                                                                                                                     |
+| `--input-directory INPUT_DIRECTORY` | 设置ComfyUI输入目录。覆盖--base-directory。                                                                                                                                                                    |
+| `--auto-launch`                  | 自动在默认浏览器中启动ComfyUI。                                                                                                                                                                                  |
+| `--disable-auto-launch`          | 禁止自动启动浏览器。                                                                                                                                                                                               |
+| `--cuda-device DEVICE_ID`        | 设置此实例使用的CUDA设备ID。                                                                                                                                                                               |
+| `--cuda-malloc`                  | 启用cudaMallocAsync（适用于torch 2.0及以上版本，默认启用）。                                                                                                                                                                   |
+| `--disable-cuda-malloc`          | 禁用cudaMallocAsync。                                                                                                                                                                                                            |
+| `--force-fp32`                   | 强制使用fp32（如果这能让你的GPU工作更好，请报告它）。                                                                                                                                                                  |
+| `--force-fp16`                   | 强制使用fp16。                                                                                                                                                                                                                       |
+| `--fp32-unet`                    | 在fp32中运行扩散模型。                                                                                                                                                                                                    |
+| `--fp64-unet`                    | 在fp64中运行扩散模型。                                                                                                                                                                                                    |
+| `--bf16-unet`                    | 在bf16中运行扩散模型。                                                                                                                                                                                                    |
+| `--fp16-unet`                    | 在fp16中运行扩散模型。                                                                                                                                                                                                    |
+| `--fp8_e4m3fn-unet`              | 将unet权重存储在fp8_e4m3fn中。                                                                                                                                                                                                   |
+| `--fp8_e5m2-unet`              | 将unet权重存储在fp8_e5m2中。                                                                                                                                                                                                   |
+| `--fp16-vae`                     | 在fp16中运行VAE，可能导致黑色图像。                                                                                                                                                                                      |
+| `--fp32-vae`                     | 在全精度fp32中运行VAE。                                                                                                                                                                                               |
+| `--bf16-vae`                     | 在bf16中运行VAE。                                                                                                                                                                                                              |
+| `--cpu-vae`                      | 在CPU上运行VAE。                                                                                                                                                                                                           |
+| `--fp8_e4m3fn-text-enc`          | 将文本编码器权重存储在fp8（e4m3fn变体）中。                                                                                                                                                                                 |
+| `--fp8_e5m2-text-enc`          | 将文本编码器权重存储在fp8（e5m2变体）中。                                                                                                                                                                                 |
+| `--fp16-text-enc`                | 将文本编码器权重存储在fp16中。                                                                                                                                                                                               |
+| `--fp32-text-enc`                | 将文本编码器权重存储在fp32中。                                                                                                                                                                                               |
+| `--force-channels-last`          | 在推理模型时强制使用channels last格式。                                                                                                                                                                             |
+| `--directml [DIRECTML_DEVICE]`   | 使用torch-directml。                                                                                                                                                                                                                 |
+| `--oneapi-device-selector SELECTOR_STRING` | 设置此实例使用的oneAPI设备。                                                                                                                                                                        |
+| `--disable-ipex-optimize`        | 禁用加载Intel扩展PyTorch模型时的ipex.optimize默认设置。                                                                                                                                                |
+| `--preview-method [none,auto,latent2rgb,taesd]` | 默认采样节点预览方法。                                                                                                                                                                          |
+| `--preview-size PREVIEW_SIZE`    | 设置采样节点的最大预览尺寸。                                                                                                                                                                                    |
+| `--cache-classic`                | 使用旧风格（激进）缓存。                                                                                                                                                                                           |
+| `--cache-lru CACHE_LRU`          | 使用LRU缓存，最多缓存N个节点结果。可能使用更多RAM/VRAM。                                                                                                                                                     |
+| `--use-split-cross-attention`    | 使用分割交叉注意力优化。当使用xformers时忽略。                                                                                                                                                          |
+| `--use-quad-cross-attention`     | 使用子二次交叉注意力优化。当使用xformers时忽略。                                                                                                                                                 |
+| `--use-pytorch-cross-attention`  | 使用新的pytorch 2.0交叉注意力函数。                                                                                                                                                                                   |
+| `--use-sage-attention`           | 使用sage注意力。                                                                                                                                                                                                               |
+| `--use-flash-attention`          | 使用FlashAttention。                                                                                                                                                                                                               |
+| `--disable-xformers`             | 禁用xformers。                                                                                                                                                                                                                 |
+| `--force-upcast-attention`       | 强制启用注意力提升精度，如果修复了黑色图像请报告。                                                                                                                                                             |
+| `--dont-upcast-attention`        | 禁用所有注意力提升精度。仅调试时必要。                                                                                                                                                                                     |
+| `--gpu-only`                     | 将所有内容（文本编码器/CLIP模型等...）存储和运行在GPU上。                                                                                                                                                              |
+| `--highvram`                     | 默认情况下，在使用后卸载模型到CPU内存。此选项保持它们在GPU内存中。                                                                                                                             |
+| `--normalvram`                   | 如果低显存被自动启用，强制使用正常显存。                                                                                                                                                                |
+| `--lowvram`                      | 将unet拆分为部分以使用更少的显存。                                                                                                                                                                                         |
+| `--novram`                       | 当低显存不够用时。                                                                                                                                                                                                          |
+| `--cpu`                          | 使用CPU进行所有操作（慢）。                                                                                                                                                                                               |
+| `--reserve-vram RESERVE_VRAM`    | 设置要保留给操作系统/其他软件使用的显存GB数量。默认根据您的操作系统保留一些数量。                                                                                            |
+| `--default-hashing-function {md5,sha1,sha256,sha512}` | 允许您选择用于重复文件名/内容比较的哈希函数。默认是sha256。                                                                                               |
+| `--disable-smart-memory`         | 强制ComfyUI积极地卸载到普通RAM而不是在可能的情况下保持模型在VRAM中。                                                                                                                                        |
+| `--deterministic`                | 让PyTorch在可能的情况下使用较慢的确定性算法。注意，这可能不会在所有情况下使图像确定性。                                                                                                       |
+| `--fast [FAST ...]`              | 启用一些未经测试且可能降低质量的优化。--fast不带参数则启用所有优化。您可以传递特定优化列表以仅启用特定优化。当前有效优化：fp16_accumulation fp8_matrix_mult |
+| `--dont-print-server`            | 不打印服务器输出。                                                                                                                                                                                                          |
+| `--quick-test-for-ci`            | CI快速测试。                                                                                                                                                                                                                |
+| `--windows-standalone-build`     | Windows独立构建：启用大多数人在使用独立Windows构建时可能会喜欢的一些便利功能（如启动时自动打开页面）。                                                                         |
+| `--disable-metadata`             | 禁止保存提示元数据到文件。                                                                                                                                                                                            |
+| `--disable-all-custom-nodes`     | 禁止加载所有自定义节点。                                                                                                                                                                                                   |
+| `--multi-user`                   | 启用按用户存储。                                                                                                                                                                                                           |
+| `--verbose [{DEBUG,INFO,WARNING,ERROR,CRITICAL}]` | 设置日志级别                                                                                                                                                                                             |
+| `--log-stdout`                   | 将正常进程输出发送到标准输出而不是标准错误（默认）。                                                                                                                                                                   |
+| `--front-end-version FRONT_END_VERSION` | 指定要使用的前端版本。该命令需要互联网连接才能从GitHub发布版查询和下载可用的前端实现。版本字符串应采用以下格式：[repoOwner]/[repoName]@[version]其中版本是一个有效的版本号或"latest"（例如："1.0.0") |
+| `--front-end-root FRONT_END_ROOT`| 存储前端的本地文件系统路径。覆盖--front-end-version。                                                                                                                                |
+| `--user-directory USER_DIRECTORY`| 使用绝对路径设置ComfyUI用户目录。覆盖--base-directory。                                                                                                                                                   |
+| `--enable-compress-response-body`| 启用压缩响应体。                                                                                                                                                                                                 |
 
-options:
-  -h, --help            show this help message and exit
-  --listen [IP]         Specify the IP address to listen on (default:
-                        127.0.0.1). You can give a list of ip addresses by
-                        separating them with a comma like: 127.2.2.2,127.3.3.3
-                        If --listen is provided without an argument, it
-                        defaults to 0.0.0.0,:: (listens on all ipv4 and ipv6)
-  --port PORT           Set the listen port.
-  --tls-keyfile TLS_KEYFILE
-                        Path to TLS (SSL) key file. Enables TLS, makes app
-                        accessible at https://... requires --tls-certfile to
-                        function
-  --tls-certfile TLS_CERTFILE
-                        Path to TLS (SSL) certificate file. Enables TLS, makes
-                        app accessible at https://... requires --tls-keyfile
-                        to function
-  --enable-cors-header [ORIGIN]
-                        Enable CORS (Cross-Origin Resource Sharing) with
-                        optional origin or allow all with default '*'.
-  --max-upload-size MAX_UPLOAD_SIZE
-                        Set the maximum upload size in MB.
-  --base-directory BASE_DIRECTORY
-                        Set the ComfyUI base directory for models,
-                        custom_nodes, input, output, temp, and user
-                        directories.
-  --extra-model-paths-config PATH [PATH ...]
-                        Load one or more extra_model_paths.yaml files.
-  --output-directory OUTPUT_DIRECTORY
-                        Set the ComfyUI output directory. Overrides --base-
-                        directory.
-  --temp-directory TEMP_DIRECTORY
-                        Set the ComfyUI temp directory (default is in the
-                        ComfyUI directory). Overrides --base-directory.
-  --input-directory INPUT_DIRECTORY
-                        Set the ComfyUI input directory. Overrides --base-
-                        directory.
-  --auto-launch         Automatically launch ComfyUI in the default browser.
-  --disable-auto-launch
-                        Disable auto launching the browser.
-  --cuda-device DEVICE_ID
-                        Set the id of the cuda device this instance will use.
-  --cuda-malloc         Enable cudaMallocAsync (enabled by default for torch
-                        2.0 and up).
-  --disable-cuda-malloc
-                        Disable cudaMallocAsync.
-  --force-fp32          Force fp32 (If this makes your GPU work better please
-                        report it).
-  --force-fp16          Force fp16.
-  --fp32-unet           Run the diffusion model in fp32.
-  --fp64-unet           Run the diffusion model in fp64.
-  --bf16-unet           Run the diffusion model in bf16.
-  --fp16-unet           Run the diffusion model in fp16
-  --fp8_e4m3fn-unet     Store unet weights in fp8_e4m3fn.
-  --fp8_e5m2-unet       Store unet weights in fp8_e5m2.
-  --fp16-vae            Run the VAE in fp16, might cause black images.
-  --fp32-vae            Run the VAE in full precision fp32.
-  --bf16-vae            Run the VAE in bf16.
-  --cpu-vae             Run the VAE on the CPU.
-  --fp8_e4m3fn-text-enc
-                        Store text encoder weights in fp8 (e4m3fn variant).
-  --fp8_e5m2-text-enc   Store text encoder weights in fp8 (e5m2 variant).
-  --fp16-text-enc       Store text encoder weights in fp16.
-  --fp32-text-enc       Store text encoder weights in fp32.
-  --force-channels-last
-                        Force channels last format when inferencing the
-                        models.
-  --directml [DIRECTML_DEVICE]
-                        Use torch-directml.
-  --oneapi-device-selector SELECTOR_STRING
-                        Sets the oneAPI device(s) this instance will use.
-  --disable-ipex-optimize
-                        Disables ipex.optimize default when loading models
-                        with Intel's Extension for Pytorch.
-  --preview-method [none,auto,latent2rgb,taesd]
-                        Default preview method for sampler nodes.
-  --preview-size PREVIEW_SIZE
-                        Sets the maximum preview size for sampler nodes.
-  --cache-classic       Use the old style (aggressive) caching.
-  --cache-lru CACHE_LRU
-                        Use LRU caching with a maximum of N node results
-                        cached. May use more RAM/VRAM.
-  --use-split-cross-attention
-                        Use the split cross attention optimization. Ignored
-                        when xformers is used.
-  --use-quad-cross-attention
-                        Use the sub-quadratic cross attention optimization .
-                        Ignored when xformers is used.
-  --use-pytorch-cross-attention
-                        Use the new pytorch 2.0 cross attention function.
-  --use-sage-attention  Use sage attention.
-  --use-flash-attention
-                        Use FlashAttention.
-  --disable-xformers    Disable xformers.
-  --force-upcast-attention
-                        Force enable attention upcasting, please report if it
-                        fixes black images.
-  --dont-upcast-attention
-                        Disable all upcasting of attention. Should be
-                        unnecessary except for debugging.
-  --gpu-only            Store and run everything (text encoders/CLIP models,
-                        etc... on the GPU).
-  --highvram            By default models will be unloaded to CPU memory after
-                        being used. This option keeps them in GPU memory.
-  --normalvram          Used to force normal vram use if lowvram gets
-                        automatically enabled.
-  --lowvram             Split the unet in parts to use less vram.
-  --novram              When lowvram isn't enough.
-  --cpu                 To use the CPU for everything (slow).
-  --reserve-vram RESERVE_VRAM
-                        Set the amount of vram in GB you want to reserve for
-                        use by your OS/other software. By default some amount
-                        is reserved depending on your OS.
-  --default-hashing-function {md5,sha1,sha256,sha512}
-                        Allows you to choose the hash function to use for
-                        duplicate filename / contents comparison. Default is
-                        sha256.
-  --disable-smart-memory
-                        Force ComfyUI to agressively offload to regular ram
-                        instead of keeping models in vram when it can.
-  --deterministic       Make pytorch use slower deterministic algorithms when
-                        it can. Note that this might not make images
-                        deterministic in all cases.
-  --fast [FAST ...]     Enable some untested and potentially quality
-                        deteriorating optimizations. --fast with no arguments
-                        enables everything. You can pass a list specific
-                        optimizations if you only want to enable specific
-                        ones. Current valid optimizations: fp16_accumulation
-                        fp8_matrix_mult
-  --dont-print-server   Don't print server output.
-  --quick-test-for-ci   Quick test for CI.
-  --windows-standalone-build
-                        Windows standalone build: Enable convenient things
-                        that most people using the standalone windows build
-                        will probably enjoy (like auto opening the page on
-                        startup).
-  --disable-metadata    Disable saving prompt metadata in files.
-  --disable-all-custom-nodes
-                        Disable loading all custom nodes.
-  --multi-user          Enables per-user storage.
-  --verbose [{DEBUG,INFO,WARNING,ERROR,CRITICAL}]
-                        Set the logging level
-  --log-stdout          Send normal process output to stdout instead of stderr
-                        (default).
-  --front-end-version FRONT_END_VERSION
-                        Specifies the version of the frontend to be used. This
-                        command needs internet connectivity to query and
-                        download available frontend implementations from
-                        GitHub releases. The version string should be in the
-                        format of: [repoOwner]/[repoName]@[version] where
-                        version is one of: "latest" or a valid version number
-                        (e.g. "1.0.0")
-  --front-end-root FRONT_END_ROOT
-                        The local filesystem path to the directory where the
-                        frontend is located. Overrides --front-end-version.
-  --user-directory USER_DIRECTORY
-                        Set the ComfyUI user directory with an absolute path.
-                        Overrides --base-directory.
-  --enable-compress-response-body
-                        Enable compressing response body.
+
+
+
+---
+| Option                           | Description                                                                                                                                                                                                                         |
+|----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `-h, --help`                     | Show this help message and exit.                                                                                                                                                                                                    |
+| `--listen [IP]`                  | Specify the IP address to listen on (default: 127.0.0.1). You can give a list of ip addresses by separating them with a comma. If provided without an argument, it defaults to 0.0.0.0,:: (listens on all ipv4 and ipv6).                |
+| `--port PORT`                    | Set the listen port.                                                                                                                                                                                                                |
+| `--tls-keyfile TLS_KEYFILE`      | Path to TLS (SSL) key file. Enables TLS, makes app accessible at https://... requires --tls-certfile to function.                                                                                                                      |
+| `--tls-certfile TLS_CERTFILE`    | Path to TLS (SSL) certificate file. Enables TLS, makes app accessible at https://... requires --tls-keyfile to function.                                                                                                                |
+| `--enable-cors-header [ORIGIN]`  | Enable CORS (Cross-Origin Resource Sharing) with optional origin or allow all with default '*'.                                                                                                                                       |
+| `--max-upload-size MAX_UPLOAD_SIZE` | Set the maximum upload size in MB.                                                                                                                                                                                              |
+| `--base-directory BASE_DIRECTORY`| Set the ComfyUI base directory for models, custom_nodes, input, output, temp, and user directories.                                                                                                                                   |
+| `--extra-model-paths-config PATH [PATH ...]` | Load one or more extra_model_paths.yaml files.                                                                                                                                                                         |
+| `--output-directory OUTPUT_DIRECTORY` | Set the ComfyUI output directory. Overrides --base-directory.                                                                                                                                                                 |
+| `--temp-directory TEMP_DIRECTORY`| Set the ComfyUI temp directory (default is in the ComfyUI directory). Overrides --base-directory.                                                                                                                                     |
+| `--input-directory INPUT_DIRECTORY` | Set the ComfyUI input directory. Overrides --base-directory.                                                                                                                                                                    |
+| `--auto-launch`                  | Automatically launch ComfyUI in the default browser.                                                                                                                                                                                  |
+| `--disable-auto-launch`          | Disable auto launching the browser.                                                                                                                                                                                               |
+| `--cuda-device DEVICE_ID`        | Set the id of the cuda device this instance will use.                                                                                                                                                                               |
+| `--cuda-malloc`                  | Enable cudaMallocAsync (enabled by default for torch 2.0 and up).                                                                                                                                                                   |
+| `--disable-cuda-malloc`          | Disable cudaMallocAsync.                                                                                                                                                                                                            |
+| `--force-fp32`                   | Force fp32 (If this makes your GPU work better please report it).                                                                                                                                                                  |
+| `--force-fp16`                   | Force fp16.                                                                                                                                                                                                                       |
+| `--fp32-unet`                    | Run the diffusion model in fp32.                                                                                                                                                                                                    |
+| `--fp64-unet`                    | Run the diffusion model in fp64.                                                                                                                                                                                                    |
+| `--bf16-unet`                    | Run the diffusion model in bf16.                                                                                                                                                                                                    |
+| `--fp16-unet`                    | Run the diffusion model in fp16.                                                                                                                                                                                                    |
+| `--fp8_e4m3fn-unet`              | Store unet weights in fp8_e4m3fn.                                                                                                                                                                                                   |
+| `--fp8_e5m2-unet`              | Store unet weights in fp8_e5m2.                                                                                                                                                                                                   |
+| `--fp16-vae`                     | Run the VAE in fp16, might cause black images.                                                                                                                                                                                      |
+| `--fp32-vae`                     | Run the VAE in full precision fp32.                                                                                                                                                                                               |
+| `--bf16-vae`                     | Run the VAE in bf16.                                                                                                                                                                                                              |
+| `--cpu-vae`                      | Run the VAE on the CPU.                                                                                                                                                                                                           |
+| `--fp8_e4m3fn-text-enc`          | Store text encoder weights in fp8 (e4m3fn variant).                                                                                                                                                                                 |
+| `--fp8_e5m2-text-enc`          | Store text encoder weights in fp8 (e5m2 variant).                                                                                                                                                                                 |
+| `--fp16-text-enc`                | Store text encoder weights in fp16.                                                                                                                                                                                               |
+| `--fp32-text-enc`                | Store text encoder weights in fp32.                                                                                                                                                                                               |
+| `--force-channels-last`          | Force channels last format when inferencing the models.                                                                                                                                                                             |
+| `--directml [DIRECTML_DEVICE]`   | Use torch-directml.                                                                                                                                                                                                                 |
+| `--oneapi-device-selector SELECTOR_STRING` | Sets the oneAPI device(s) this instance will use.                                                                                                                                                                        |
+| `--disable-ipex-optimize`        | Disables ipex.optimize default when loading models with Intel's Extension for Pytorch.                                                                                                                                                |
+| `--preview-method [none,auto,latent2rgb,taesd]` | Default preview method for sampler nodes.                                                                                                                                                                          |
+| `--preview-size PREVIEW_SIZE`    | Sets the maximum preview size for sampler nodes.                                                                                                                                                                                    |
+| `--cache-classic`                | Use the old style (aggressive) caching.                                                                                                                                                                                           |
+| `--cache-lru CACHE_LRU`          | Use LRU caching with a maximum of N node results cached. May use more RAM/VRAM.                                                                                                                                                     |
+| `--use-split-cross-attention`    | Use the split cross attention optimization. Ignored when xformers is used.                                                                                                                                                          |
+| `--use-quad-cross-attention`     | Use the sub-quadratic cross attention optimization . Ignored when xformers is used.                                                                                                                                                 |
+| `--use-pytorch-cross-attention`  | Use the new pytorch 2.0 cross attention function.                                                                                                                                                                                   |
+| `--use-sage-attention`           | Use sage attention.                                                                                                                                                                                                               |
+| `--use-flash-attention`          | Use FlashAttention.                                                                                                                                                                                                               |
+| `--disable-xformers`             | Disable xformers.                                                                                                                                                                                                                 |
+| `--force-upcast-attention`       | Force enable attention upcasting, please report if it fixes black images.                                                                                                                                                             |
+| `--dont-upcast-attention`        | Disable all upcasting of attention. Should be unnecessary except for debugging.                                                                                                                                                     |
+| `--gpu-only`                     | Store and run everything (text encoders/CLIP models, etc... on the GPU).                                                                                                                                                              |
+| `--highvram`                     | By default models will be unloaded to CPU memory after being used. This option keeps them in GPU memory.                                                                                                                             |
+| `--normalvram`                   | Used to force normal vram use if lowvram gets automatically enabled.                                                                                                                                                                |
+| `--lowvram`                      | Split the unet in parts to use less vram.                                                                                                                                                                                         |
+| `--novram`                       | When lowvram isn't enough.                                                                                                                                                                                                          |
+| `--cpu`                          | To use the CPU for everything (slow).                                                                                                                                                                                               |
+| `--reserve-vram RESERVE_VRAM`    | Set the amount of vram in GB you want to reserve for use by your OS/other software. By default some amount is reserved depending on your OS.                                                                                            |
+| `--default-hashing-function {md5,sha1,sha256,sha512}` | Allows you to choose the hash function to use for duplicate filename / contents comparison. Default is sha256.                                                                                               |
+| `--disable-smart-memory`         | Force ComfyUI to agressively offload to regular ram instead of keeping models in vram when it can.                                                                                                                                        |
+| `--deterministic`                | Make pytorch use slower deterministic algorithms when it can. Note that this might not make images deterministic in all cases.                                                                                                       |
+| `--fast [FAST ...]`              | Enable some untested and potentially quality deteriorating optimizations. --fast with no arguments enables everything. You can pass a list specific optimizations if you only want to enable specific ones. Current valid optimizations: fp16_accumulation fp8_matrix_mult |
+| `--dont-print-server`            | Don't print server output.                                                                                                                                                                                                          |
+| `--quick-test-for-ci`            | Quick test for CI.                                                                                                                                                                                                                |
+| `--windows-standalone-build`     | Windows standalone build: Enable convenient things that most people using the standalone windows build will probably enjoy (like auto opening the page on startup).                                                                         |
+| `--disable-metadata`             | Disable saving prompt metadata in files.                                                                                                                                                                                            |
+| `--disable-all-custom-nodes`     | Disable loading all custom nodes.                                                                                                                                                                                                   |
+| `--multi-user`                   | Enables per-user storage.                                                                                                                                                                                                           |
+| `--verbose [{DEBUG,INFO,WARNING,ERROR,CRITICAL}]` | Set the logging level                                                                                                                                                                                             |
+| `--log-stdout`                   | Send normal process output to stdout instead of stderr (default).                                                                                                                                                                   |
+| `--front-end-version FRONT_END_VERSION` | Specifies the version of the frontend to be used. This command needs internet connectivity to query and download available frontend implementations from GitHub releases. The version string should be in the format of: [repoOwner]/[repoName]@[version] where version is one of: "latest" or a valid version number (e.g. "1.0.0") |
+| `--front-end-root FRONT_END_ROOT`| The local filesystem path to the directory where the frontend is located. Overrides --front-end-version.                                                                                                                                |
+| `--user-directory USER_DIRECTORY`| Set the ComfyUI user directory with an absolute path. Overrides --base-directory.                                                                                                                                                   |
+| `--enable-compress-response-body`| Enable compressing response body.                                                                                                                                                                                                 |
+
+
+
+
