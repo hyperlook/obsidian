@@ -2,6 +2,7 @@
 category: 技术
 来源: https://github.com/pt-plugins/PT-Plugin-Plus/wiki/install-from-crx
 title: pt plugin 安装
+draft: true
 ---
 > [!important] 目录
 > 

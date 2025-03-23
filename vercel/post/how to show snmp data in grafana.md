@@ -1,6 +1,7 @@
 ---
 category: 技术
 title: how to show snmp data in grafana
+draft: true
 ---
 > [!important] 目录
 > 
