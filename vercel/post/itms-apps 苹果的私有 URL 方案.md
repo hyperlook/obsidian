@@ -1,10 +1,10 @@
 ---
-title: itms-apps 苹果定义的私有 URL 方案
+title: itms-apps 苹果的私有 URL 方案
 tags:
   - apple
 description: itms-apps:// 是一个由苹果定义的私有 URL 方案（URL Scheme），用于在 iOS 设备上直接唤起 App Store 应用并导航到特定内容（如应用页面或开发者页面）。
 created: 2025-03-24 09:07
-modified: 2025-03-24T09:55:49+08:00
+modified: 2025-03-24T10:10:38+08:00
 draft: false
 slug: itms-apps
 ---
