@@ -2,8 +2,12 @@
 category: FAQ
 tags:
   - ios
+  - apple
 description: 我们经常在iphone，mac 上有这样的需求，需要直接能跳转到app store 的操作，比如在捷径、或raycast的quicklinks中，这就用到app store的直接跳转链接。
-slug: itms-apps
+slug: search-in-appstore
+modified: 2025-03-24T10:00:55+08:00
+created: 2025-03-23T18:21:47+08:00
+title: 获取应用在App Store的直链链接
 ---
 > [!important] 目录
 > 
@@ -15,6 +19,8 @@ slug: itms-apps
 
 ### 如何获取苹果App Store的直接打开链接
 
+这里我们就需要用到[[itms-apps 苹果定义的私有 URL 方案]]
+
 苹果App Store的直接打开链接可以通过以下方式获得：
 
 1. 打开 App Store 并搜索您要链接的应用程序。
@@ -23,7 +29,7 @@ slug: itms-apps
 
 例如，微信的应用ID是414478124，所以它的直接打开链接是：
 
-[[获取苹果App Store的直接打开链接]]
+[微信-appStore](itms-apps://itunes.apple.com/app/id414478124)
 
 ### app store 的搜索链接
 
