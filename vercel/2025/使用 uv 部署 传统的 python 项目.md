@@ -5,7 +5,7 @@ tags:
   - python
 description: 经常逛github，看到喜欢的开源 python 项目，老想部署玩玩，又偏爱 uv 来部署，记录个常规过程备忘
 created: 2025-03-24 10:39
-modified: 2025-03-24T10:45:01+08:00
+modified: 2025-03-25T22:24:59+08:00
 draft: true
 slug: uv-python
 ---
@@ -90,7 +90,8 @@ uv sync        # 根据 pyproject.toml 安装依赖到虚拟环境中
 
 ### 示例完整流程
 假设你的 `requirements.txt` 是：
-```
+
+```bash
 requests==2.28.1
 numpy>=1.21.0
 pytest>=7.0.0

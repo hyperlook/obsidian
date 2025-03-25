@@ -5,7 +5,7 @@ tags:
   - apple
 description: 我们经常在iphone，mac 上有这样的需求，需要直接能跳转到app store 的操作，比如在捷径、或raycast的quicklinks中，这就用到app store的直接跳转链接。
 slug: search-in-appstore
-modified: 2025-03-24T10:00:55+08:00
+modified: 2025-03-25T22:21:15+08:00
 created: 2025-03-23T18:21:47+08:00
 title: 获取应用在App Store的直链链接
 ---
