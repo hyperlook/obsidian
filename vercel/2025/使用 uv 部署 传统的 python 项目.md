@@ -1,11 +1,11 @@
 ---
-title: 
+title: 使用 uv 部署 传统的 python 项目
 tags:
   - uv
   - python
 description: 经常逛github，看到喜欢的开源 python 项目，老想部署玩玩，又偏爱 uv 来部署，记录个常规过程备忘
 created: 2025-03-24 10:39
-modified: 2025-03-26T08:16:07+08:00
+modified: 2025-03-26T12:24:25+08:00
 draft: true
 slug: uv-python
 ---
@@ -61,7 +61,7 @@ uv add -r requirements.txt
 uv venv        # 创建虚拟环境，默认在 .venv 文件夹中
 uv sync        # 根据 pyproject.toml 安装依赖到虚拟环境中
 ```
-
+> 其实 uv add 的时候会自动创建 .venv 所以可省略 `uv venv`
 - `uv sync` 会根据 `pyproject.toml` 和 `uv.lock`（如果存在）安装所有依赖到虚拟环境中。
 - 如果你还没有 `uv.lock` 文件，`uv sync` 会自动生成一个，锁定具体的依赖版本。
 
