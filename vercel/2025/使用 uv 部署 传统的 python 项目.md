@@ -5,7 +5,7 @@ tags:
   - python
 description: 经常逛github，看到喜欢的开源 python 项目，老想部署玩玩，又偏爱 uv 来部署，记录个常规过程备忘
 created: 2025-03-24 10:39
-modified: 2025-03-25T22:24:59+08:00
+modified: 2025-03-26T08:16:07+08:00
 draft: true
 slug: uv-python
 ---
