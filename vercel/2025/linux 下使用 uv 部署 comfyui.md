@@ -1,10 +1,13 @@
 ---
-title: 
-tags: 
+title: Linux 下使用 uv 部署 comfyui
+tags:
+  - linux
+  - comfyui
 description: 
-created: 2025-03-26 09:28
-modified: 2025-03-26 09:28
+created: 2025-03-26 11:48
+modified: 2025-03-26T11:49:03+08:00
 draft: true
+slug: comfyui-uv
 ---
 # 1111
 >[!tip] test

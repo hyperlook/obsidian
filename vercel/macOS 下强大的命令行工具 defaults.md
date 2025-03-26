@@ -1,11 +1,11 @@
 ---
-title: macOS 系统中强大的命令行工具 defaults
+title: macOS 下强大的命令行工具 defaults
 tags:
   - mac
   - defaults
 description: defaults 是 macOS 系统中一个非常强大的命令行工具，用于读取、写入和管理 macOS 的偏好设置（Preferences）。偏好设置是以 .plist 文件的形式存储在系统中的，defaults 命令可以方便地操作这些文件，而无需手动编辑它们。
 created: 2025-03-26 09:10
-modified: 2025-03-26T09:10:45+08:00
+modified: 2025-03-26T11:46:55+08:00
 draft: false
 permalink: mac/defaults
 ---
