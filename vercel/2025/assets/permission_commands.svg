@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <!-- 背景 -->
+  <rect width="800" height="600" fill="#f8f9fa" rx="10" ry="10"/>
+  
+  <!-- 标题 -->
+  <text x="400" y="50" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#333">Linux 权限修改命令图</text>
+  
+  <!-- 表格标题行 -->
+  <rect x="50" y="80" width="700" height="40" fill="#339af0" rx="5" ry="5"/>
+  <line x1="250" y1="80" x2="250" y2="120" stroke="white" stroke-width="2"/>
+  <line x1="450" y1="80" x2="450" y2="120" stroke="white" stroke-width="2"/>
+  <line x1="600" y1="80" x2="600" y2="120" stroke="white" stroke-width="2"/>
+  
+  <text x="150" y="105" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">命令</text>
+  <text x="350" y="105" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">功能</text>
+  <text x="525" y="105" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">基本语法</text>
+  <text x="700" y="105" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">示例</text>
+  
+  <!-- chmod 行 -->
+  <rect x="50" y="120" width="700" height="120" fill="#e9ecef" rx="0" ry="0" stroke="#ced4da" stroke-width="1"/>
+  <line x1="250" y1="120" x2="250" y2="240" stroke="#ced4da" stroke-width="1"/>
+  <line x1="450" y1="120" x2="450" y2="240" stroke="#ced4da" stroke-width="1"/>
+  <line x1="600" y1="120" x2="600" y2="240" stroke="#ced4da" stroke-width="1"/>
+  
+  <text x="150" y="145" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#333">chmod</text>
+  <text x="150" y="165" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#666">(change mode)</text>
+  
+  <text x="350" y="145" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333">更改文件和目录的权限</text>
+  
+  <text x="525" y="145" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333">chmod [选项] 模式 文件</text>
+  <text x="525" y="165" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#666">符号模式: u,g,o,a +,-,= r,w,x</text>
+  <text x="525" y="185" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#666">数字模式: 4(r),2(w),1(x)</text>
+  <text x="525" y="205" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#666">-R: 递归修改</text>
+  
+  <text x="650" y="145" font-family="Arial, sans-serif" font-size="12" text-anchor="start" fill="#333">chmod u+x script.sh</text>
+  <text x="650" y="165" font-family="Arial, sans-serif" font-size="12" text-anchor="start" fill="#333">chmod 755 script.sh</text>
+  <text x="650" y="185" font-family="Arial, sans-serif" font-size="12" text-anchor="start" fill="#333">chmod -R 644 folder/</text>
+  <text x="650" y="205" font-family="Arial, sans-serif" font-size="12" text-anchor="start" fill="#333">chmod a=r file.txt</text>
+  
+  <!-- chown 行 -->
+  <rect x="50" y="240" width="700" height="120" fill="#fff" rx="0" ry="0" stroke="#ced4da" stroke-width="1"/>
+  <line x1="250" y1="240" x2="250" y2="360" stroke="#ced4da" stroke-width="1"/>
+  <line x1="450" y1="240" x2="450" y2="360" stroke="#ced4da" stroke-width="1"/>
+  <line x1="600" y1="240" x2="600" y2="360" stroke="#ced4da" stroke-width="1"/>
+  
+  <text x="150" y="265" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#333">chown</text>
+  <text x="150" y="285" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#666">(change owner)</text>
+  
+  <text x="350" y="265" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333">更改文件和目录的</text>
+  <text x="350" y="285" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333">所有者和所属组</text>
+  
+  <text x="525" y="265" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333">chown [选项] 所有者[:组] 文件</text>
+  <text x="525" y="285" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#666">所有者: 用户名</text>
+  <text x="525" y="305" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#666">[:组]: 可选的组名</text>
+  <text x="525" y="325" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#666">-R: 递归修改</text>
+  
+  <text x="650" y="265" font-family="Arial, sans-serif" font-size="12" text-anchor="start" fill="#333">chown user1 file.txt</text>
+  <text x="650" y="285" font-family="Arial, sans-serif" font-size="12" text-anchor="start" fill="#333">chown user1:group1 file.txt</text>
+  <text x="650" y="305" font-family="Arial, sans-serif" font-size="12" text-anchor="start" fill="#333">chown :group1 file.txt</text>
+  <text x="650" y="325" font-family="Arial, sans-serif" font-size="12" text-anchor="start" fill="#333">chown -R user1 folder/</text>
+  
+  <!-- chgrp 行 -->
+  <rect x="50" y="360" width="700" height="120" fill="#e9ecef" rx="0" ry="0" stroke="#ced4da" stroke-width="1"/>
+  <line x1="250" y1="360" x2="250" y2="480" stroke="#ced4da" stroke-width="1"/>
+  <line x1="450" y1="360" x2="450" y2="480" stroke="#ced4da" stroke-width="1"/>
+  <line x1="600" y1="360" x2="600" y2="480" stroke="#ced4da" stroke-width="1"/>
+  
+  <text x="150" y="385" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#333">chgrp</text>
+  <text x="150" y="405" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#666">(change group)</text>
+  
+  <text x="350" y="385" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333">更改文件和目录的</text>
+  <text x="350" y="405" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333">所属组</text>
+  
+  <text x="525" y="385" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333">chgrp [选项] 组 文件</text>
+  <text x="525" y="405" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#666">组: 组名</text>
+  <text x="525" y="425" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#666">-R: 递归修改</text>
+  
+  <text x="650" y="385" font-family="Arial, sans-serif" font-size="12" text-anchor="start" fill="#333">chgrp developers file.txt</text>
+  <text x="650" y="405" font-family="Arial, sans-serif" font-size="12" text-anchor="start" fill="#333">chgrp -R developers folder/</text>
+  
+  <!-- 特殊权限设置行 -->
+  <rect x="50" y="480" width="700" height="100" fill="#fff" rx="0" ry="0" stroke="#ced4da" stroke-width="1"/>
+  <line x1="250" y1="480" x2="250" y2="580" stroke="#ced4da" stroke-width="1"/>
+  <line x1="450" y1="480" x2="450" y2="580" stroke="#ced4da" stroke-width="1"/>
+  <line x1="600" y1="480" x2="600" y2="580" stroke="#ced4da" stroke-width="1"/>
+  
+  <text x="150" y="505" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#333">特殊权限设置</text>
+  <text x="150" y="525" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#666">(Special Permissions)</text>
+  
+  <text x="350" y="505" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333">设置特殊权限位</text>
+  <text x="350" y="525" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333">(SUID, SGID, Sticky Bit)</text>
+  
+  <text x="525" y="505" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333">chmod [选项] 模式 文件</text>
+  <text x="525" y="525" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#666">数字模式: 4000(SUID)</text>
+  <text x="525" y="545" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#666">数字模式: 2000(SGID)</text>
+  <text x="525" y="565" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#666">数字模式: 1000(Sticky Bit)</text>
+  
+  <text x="650" y="505" font-family="Arial, sans-serif" font-size="12" text-anchor="start" fill="#333">chmod u+s file</text>
+  <text x="650" y="525" font-family="Arial, sans-serif" font-size="12" text-anchor="start" fill="#333">chmod g+s directory</text>
+  <text x="650" y="545" font-family="Arial, sans-serif" font-size="12" text-anchor="start" fill="#333">chmod +t directory</text>
+  <text x="650" y="565" font-family="Arial, sans-serif" font-size="12" text-anchor="start" fill="#333">chmod 1777 /tmp</text>
+</svg>

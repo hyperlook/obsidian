@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <!-- 背景 -->
+  <rect width="800" height="600" fill="#f8f9fa" rx="10" ry="10"/>
+  
+  <!-- 标题 -->
+  <text x="400" y="50" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#333">Linux 特殊权限说明图</text>
+  
+  <!-- 定义箭头标记 -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
+    </marker>
+    <marker id="blocked" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L6,6 M6,0 L0,6" stroke="#f03e3e" stroke-width="2"/>
+    </marker>
+  </defs>
+  
+  <!-- SETUID 部分 -->
+  <rect x="50" y="80" width="700" height="160" fill="#e9ecef" rx="8" ry="8" stroke="#ced4da" stroke-width="2"/>
+  <text x="400" y="110" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#333">Setuid (SUID)</text>
+  
+  <!-- SETUID 图示 -->
+  <circle cx="120" cy="150" r="30" fill="#4dabf7"/>
+  <text x="120" y="155" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">普通用户</text>
+  
+  <rect x="220" y="130" width="100" height="40" fill="#ff6b6b" rx="5" ry="5"/>
+  <text x="270" y="155" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">passwd 命令</text>
+  <text x="270" y="170" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="white">所有者: root</text>
+  
+  <circle cx="400" cy="150" r="30" fill="#ff922b"/>
+  <text x="400" y="155" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">root 权限</text>
+  
+  <rect x="480" y="130" width="100" height="40" fill="#51cf66" rx="5" ry="5"/>
+  <text x="530" y="155" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">/etc/shadow</text>
+  <text x="530" y="170" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="white">只有root可写</text>
+  
+  <!-- SETUID 箭头 -->
+  <line x1="150" y1="150" x2="220" y2="150" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="320" y1="150" x2="370" y2="150" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="430" y1="150" x2="480" y2="150" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- SETUID 说明文本 -->
+  <text x="400" y="200" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333">Setuid 允许普通用户以文件所有者(root)的身份执行程序，临时获得更高权限</text>
+  <text x="400" y="220" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333">例如: 普通用户可以通过 passwd 命令修改 /etc/shadow 文件中的密码</text>
+  
+  <!-- SETGID 部分 -->
+  <rect x="50" y="250" width="700" height="160" fill="#e9ecef" rx="8" ry="8" stroke="#ced4da" stroke-width="2"/>
+  <text x="400" y="280" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#333">Setgid (SGID)</text>
+  
+  <!-- SETGID 图示 - 目录应用 -->
+  <circle cx="120" cy="320" r="30" fill="#4dabf7"/>
+  <text x="120" y="325" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">用户A</text>
+  
+  <rect x="220" y="300" width="100" height="40" fill="#20c997" rx="5" ry="5"/>
+  <text x="270" y="325" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">共享目录</text>
+  <text x="270" y="340" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="white">SGID 已设置</text>
+  
+  <rect x="400" y="300" width="100" height="40" fill="#51cf66" rx="5" ry="5"/>
+  <text x="450" y="325" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">新建文件</text>
+  <text x="450" y="340" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="white">所有者: 用户A</text>
+  
+  <rect x="580" y="300" width="100" height="40" fill="#fcc419" rx="5" ry="5"/>
+  <text x="630" y="325" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">项目组</text>
+  <text x="630" y="340" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="white">目录所属组</text>
+  
+  <!-- SETGID 箭头和连接线 -->
+  <line x1="150" y1="320" x2="220" y2="320" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="320" y1="320" x2="400" y2="320" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="270" y1="280" x2="630" y2="280" stroke="#333" stroke-width="1"/>
+  <line x1="630" y1="280" x2="630" y2="300" stroke="#333" stroke-width="1"/>
+  <line x1="270" y1="280" x2="270" y2="300" stroke="#333" stroke-width="1"/>
+  <line x1="500" y1="320" x2="580" y2="320" stroke="#333" stroke-width="2" stroke-dasharray="5,3"/>
+  
+  <!-- SETGID 说明文本 -->
+  <text x="400" y="370" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333">Setgid 使目录中新创建的文件自动继承目录的所属组，而不是创建者的主要组</text>
+  <text x="400" y="390" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333">适用于团队协作场景，确保所有成员创建的文件都属于同一个组</text>
+  
+  <!-- Sticky Bit 部分 -->
+  <rect x="50" y="420" width="700" height="160" fill="#e9ecef" rx="8" ry="8" stroke="#ced4da" stroke-width="2"/>
+  <text x="400" y="450" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#333">Sticky Bit</text>
+  
+  <!-- Sticky Bit 图示 -->
+  <rect x="100" y="480" width="120" height="60" fill="#20c997" rx="5" ry="5"/>
+  <text x="160" y="510" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">/tmp 目录</text>
+  <text x="160" y="525" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="white">Sticky Bit 已设置</text>
+  
+  <circle cx="300" cy="480" r="25" fill="#4dabf7"/>
+  <text x="300" y="485" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">用户A</text>
+  
+  <circle cx="300" cy="540" r="25" fill="#ff6b6b"/>
+  <text x="300" y="545" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">用户B</text>
+  
+  <rect x="400" y="470" width="80" height="30" fill="#51cf66" rx="5" ry="5"/>
+  <text x="440" y="490" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">fileA</text>
+  
+  <rect x="400" y="520" width="80" height="30" fill="#ff922b" rx="5" ry="5"/>
+  <text x="440" y="540" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">fileB</text>
+  
+  <line x1="325" y1="480" x2="400" y2="480" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="360" y="470" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#333">创建</text>
+  
+  <line x1="325" y1="540" x2="400" y2="540" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="360" y="530" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#333">创建</text>
+  
+  <line x1="325" y1="480" x2="390" y2="520" stroke="#333" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#blocked)"/>
+  <text x="350" y="505" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#f03e3e">不能删除</text>
+  
+  <line x1="325" y1="540" x2="390" y2="470" stroke="#333" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#blocked)"/>
+  <text x="350" y="500" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#f03e3e">不能删除</text>
+  
+  <!-- Sticky Bit 说明文本 -->
+  <text x="400" y="560" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333">Sticky Bit 限制目录中文件的删除，只有文件所有者、目录所有者或 root 用户才能删除</text>
+  <text x="400" y="580" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333">常用于公共可写目录如 /tmp，防止用户删除彼此创建的文件</text>
+</svg>

@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+  <!-- 背景 -->
+  <rect width="800" height="500" fill="#f8f9fa" rx="10" ry="10"/>
+  
+  <!-- 标题 -->
+  <text x="400" y="50" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#333">Linux 用户和组关系图</text>
+  
+  <!-- 定义箭头标记 -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
+    </marker>
+  </defs>
+  
+  <!-- 用户部分 -->
+  <rect x="50" y="100" width="120" height="60" fill="#4dabf7" rx="8" ry="8" stroke="#339af0" stroke-width="2"/>
+  <text x="110" y="135" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">root 用户</text>
+  
+  <rect x="50" y="200" width="120" height="60" fill="#4dabf7" rx="8" ry="8" stroke="#339af0" stroke-width="2"/>
+  <text x="110" y="235" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">用户 A</text>
+  
+  <rect x="50" y="300" width="120" height="60" fill="#4dabf7" rx="8" ry="8" stroke="#339af0" stroke-width="2"/>
+  <text x="110" y="335" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">用户 B</text>
+  
+  <rect x="50" y="400" width="120" height="60" fill="#4dabf7" rx="8" ry="8" stroke="#339af0" stroke-width="2"/>
+  <text x="110" y="435" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">用户 C</text>
+  
+  <!-- 主要组部分 -->
+  <rect x="300" y="100" width="140" height="60" fill="#51cf66" rx="8" ry="8" stroke="#40c057" stroke-width="2"/>
+  <text x="370" y="135" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">root 组</text>
+  <text x="370" y="155" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="white">(GID: 0)</text>
+  
+  <rect x="300" y="200" width="140" height="60" fill="#51cf66" rx="8" ry="8" stroke="#40c057" stroke-width="2"/>
+  <text x="370" y="235" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">开发组</text>
+  <text x="370" y="255" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="white">(GID: 1000)</text>
+  
+  <rect x="300" y="300" width="140" height="60" fill="#51cf66" rx="8" ry="8" stroke="#40c057" stroke-width="2"/>
+  <text x="370" y="335" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">测试组</text>
+  <text x="370" y="355" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="white">(GID: 1001)</text>
+  
+  <!-- 辅助组部分 -->
+  <rect x="550" y="150" width="140" height="60" fill="#ff922b" rx="8" ry="8" stroke="#fd7e14" stroke-width="2"/>
+  <text x="620" y="185" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">sudo 组</text>
+  <text x="620" y="205" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="white">(GID: 27)</text>
+  
+  <rect x="550" y="250" width="140" height="60" fill="#ff922b" rx="8" ry="8" stroke="#fd7e14" stroke-width="2"/>
+  <text x="620" y="285" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">docker 组</text>
+  <text x="620" y="305" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="white">(GID: 999)</text>
+  
+  <rect x="550" y="350" width="140" height="60" fill="#ff922b" rx="8" ry="8" stroke="#fd7e14" stroke-width="2"/>
+  <text x="620" y="385" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">项目组</text>
+  <text x="620" y="405" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="white">(GID: 1002)</text>
+  
+  <!-- 主要组连接线 -->
+  <line x1="170" y1="130" x2="300" y2="130" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="235" y="120" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">主要组</text>
+  
+  <line x1="170" y1="230" x2="300" y2="230" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="235" y="220" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">主要组</text>
+  
+  <line x1="170" y1="330" x2="300" y2="330" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="235" y="320" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">主要组</text>
+  
+  <line x1="170" y1="430" x2="300" y2="330" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="235" y="390" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">主要组</text>
+  
+  <!-- 辅助组连接线 -->
+  <line x1="170" y1="100" x2="550" y2="150" stroke="#333" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrow)"/>
+  <text x="360" y="115" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">辅助组</text>
+  
+  <line x1="170" y1="200" x2="550" y2="180" stroke="#333" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrow)"/>
+  <text x="360" y="180" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">辅助组</text>
+  
+  <line x1="170" y1="230" x2="550" y2="280" stroke="#333" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrow)"/>
+  <text x="360" y="245" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">辅助组</text>
+  
+  <line x1="170" y1="300" x2="550" y2="280" stroke="#333" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrow)"/>
+  <text x="360" y="280" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">辅助组</text>
+  
+  <line x1="170" y1="330" x2="550" y2="380" stroke="#333" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrow)"/>
+  <text x="360" y="345" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">辅助组</text>
+  
+  <line x1="170" y1="400" x2="550" y2="380" stroke="#333" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrow)"/>
+  <text x="360" y="380" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">辅助组</text>
+  
+  <!-- 图例 -->
+  <rect x="50" y="470" width="20" height="20" fill="#4dabf7" rx="3" ry="3" stroke="#339af0" stroke-width="1"/>
+  <text x="80" y="485" font-family="Arial, sans-serif" font-size="14" text-anchor="start" fill="#333">用户</text>
+  
+  <rect x="150" y="470" width="20" height="20" fill="#51cf66" rx="3" ry="3" stroke="#40c057" stroke-width="1"/>
+  <text x="180" y="485" font-family="Arial, sans-serif" font-size="14" text-anchor="start" fill="#333">主要组</text>
+  
+  <rect x="250" y="470" width="20" height="20" fill="#ff922b" rx="3" ry="3" stroke="#fd7e14" stroke-width="1"/>
+  <text x="280" y="485" font-family="Arial, sans-serif" font-size="14" text-anchor="start" fill="#333">辅助组</text>
+  
+  <line x1="350" y1="480" x2="390" y2="480" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="430" y="485" font-family="Arial, sans-serif" font-size="14" text-anchor="start" fill="#333">主要组关系</text>
+  
+  <line x1="500" y1="480" x2="540" y2="480" stroke="#333" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrow)"/>
+  <text x="580" y="485" font-family="Arial, sans-serif" font-size="14" text-anchor="start" fill="#333">辅助组关系</text>
+</svg>
