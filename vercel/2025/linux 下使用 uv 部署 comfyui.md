@@ -5,7 +5,7 @@ tags:
   - comfyui
 description: 
 created: 2025-03-26 11:48
-modified: 2025-03-29T19:38:56+08:00
+modified: 2025-03-29T20:05:54+08:00
 draft: true
 slug: comfyui-uv
 ---
@@ -64,9 +64,28 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 git clone https://github.com/comfyanonymous/ComfyUI.git
 ```
 - comfyui 项目本身已经带 pyproject.toml，我们无需uv初始化`un init`
-- 安装 Python 依赖，先 cd 到 comfyui 目录
+- 安装 Python 依赖，先 cd 到 ComfyUI 目录
 	```
 	uv add -r requirements.txt
+	```
+	
+	![[uv-add-comfyui.png]]
+> uv 自动创建了虚拟环境，安装好了依赖
+- 测试 pytorch
+	```
+	uv run python -c "import torch;print(torch.cuda.is_available());print(torch.version.cuda)"
+	```
+	![[Pasted image 20250329195328.png]]
+	> 版本 12.4，与我们前面[[linux 下使用 uv 部署 comfyui#PyTorch 自带 CUDA 是什么？]] 看到的一致
+- 切换 pytorch 版本
+	如果我们需要切换 pytorch 版本到 2.6，先卸载当前的
+	```
+	uv pip uninstall torch  torchvision torchaudio
+	```
+	> 因为torchvision、torchaudio 都与 torch 相关，我们一起卸载，避免不可控的混乱
+	从 pytorch 源安装 pytorch2.6
+	```
+	uv pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu126 
 	```
 
 [^1]: https://docs.nvidia.com/deploy/cuda-compatibility/
