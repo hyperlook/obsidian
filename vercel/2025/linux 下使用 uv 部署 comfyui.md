@@ -5,7 +5,7 @@ tags:
   - comfyui
 description: 
 created: 2025-03-26 11:48
-modified: 2025-03-29T16:55:37+08:00
+modified: 2025-03-29T17:36:00+08:00
 draft: true
 slug: comfyui-uv
 ---
@@ -16,6 +16,9 @@ slug: comfyui-uv
    我们安装完驱动，输入`nvidia-smi`就可以看到该驱动兼容的最高 cuda 版本
    ![[nvidia-smi.png]]
  - 次要版本和向前兼容性确保了旧的 NVIDIA 驱动程序可以与较新的 CUDA 工具包一起使用
+ > 比较复杂，普通用户只需按向后兼容，把驱动搞到新版即可
+### 显卡驱动安装
+我用的是 Arch Linux，安装比较简单
 
 ## CUDA 和 PyTorch
 ### CUDA Toolkit
