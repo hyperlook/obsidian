@@ -5,18 +5,13 @@ tags:
   - comfyui
 description: 
 created: 2025-03-26 11:48
-modified: 2025-03-29T18:41:37+08:00
+modified: 2025-03-29T19:38:56+08:00
 draft: true
 slug: comfyui-uv
 ---
 
 ## NVIDIA 显卡驱动
-### NVIDIA 显卡驱动的兼容性[^1]
- - 向后兼容性确保较新的 NVIDIA 驱动程序可以与较旧的 CUDA 工具包一起使用。
-   我们安装完驱动，输入`nvidia-smi`就可以看到该驱动兼容的最高 cuda 版本
-   ![[nvidia-smi.png]]
- - 次要版本和向前兼容性确保了旧的 NVIDIA 驱动程序可以与较新的 CUDA 工具包一起使用
- > 比较复杂，普通用户只需按向后兼容，把驱动搞到新版即可
+
 ### Arch Linux 下显卡驱动安装[^2]
 我用的是 Arch Linux，显卡是 4070s[^3]，查询命令
 ```
@@ -27,6 +22,13 @@ lspci -k -d ::03xx
 ```
 sudo pacman -S nvidia
 ```
+
+### NVIDIA 显卡驱动的兼容性[^1]
+ - 向后兼容性确保较新的 NVIDIA 驱动程序可以与较旧的 CUDA 工具包一起使用。
+   我们安装完驱动，输入`nvidia-smi`就可以看到该驱动兼容的最高 cuda 版本
+   ![[nvidia-smi.png]]
+ - 次要版本和向前兼容性确保了旧的 NVIDIA 驱动程序可以与较新的 CUDA 工具包一起使用
+ > 比较复杂，普通用户只需按向后兼容，把驱动搞到新版即可
 
 ## CUDA 和 PyTorch
 ### CUDA Toolkit
@@ -40,28 +42,37 @@ CUDA Toolkit 是套完整的开发工具包，包括编译器（nvcc）、库（
 PyTorch 的官方二进制发行版内置了一个精简的 CUDA Runtime，用于支持 PyTorch 的 GPU 计算，包含了运行时所需的 CUDA 库（如 cuDNN、cuBLAS 等）。因此只需要确保你的系统上安装了正确的 NVIDIA 驱动程序即可, **无需额外安装 cuda**，因为 PyTorch 不依赖本地的 nvcc 或完整的 CUDA Toolkit 来运行。
 
 > [!abstract] [PyTorch 官方支持的 CUDA 版本](https://pytorch.org/get-started/locally/)
-> 可以看到 python 官方的软件版仓库默认是 12.4
-> 新版12.6 需要从 pytorch 源获取
+>  python 官方源当前为 12.4
+> pytorch 源 stable版为 12.6； nightly 为 12.8
 
 |  pip安装   |   版本  |
 | --- | --- |
 |   `pip3 install torch torchvision torchaudio`   |  CUDA12.4   |
 |   `pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu126`   |  CUDA12.6   |
-
+| `pip3 install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cu128` | CUDA12.8  |
 
 ## uv 安装
 > 在 Python 生态中，`uv` 是一个新兴的工具，旨在提供高性能的包管理和任务运行功能。它由 `astral-sh`（以开发 `ruff` 等知名项目而闻名）创建，目标是成为 Python 开发者的一个快速、可靠且现代化的工具链组件。
 > uv 默认使用二进制缓存，避免重复下载和编译相同的包。
-> 
+我们按 uv 官网 命令脚本安装[^4]，会安装在个人用户目录下，uv 能很好遵循 xdg 规范
 ```
-ffff
+curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
-- aa
-- bbb
-- cc[^1]
+## comfyui部署
+### comfyui 源码下载
+```
+git clone https://github.com/comfyanonymous/ComfyUI.git
+```
+- comfyui 项目本身已经带 pyproject.toml，我们无需uv初始化`un init`
+- 安装 Python 依赖，先 cd 到 comfyui 目录
+	```
+	uv add -r requirements.txt
+	```
 
 [^1]: https://docs.nvidia.com/deploy/cuda-compatibility/
 
 [^2]: https://wiki.archlinuxcn.org/wiki/NVIDIA
 
 [^3]: https://nouveau.freedesktop.org/CodeNames.html#NV190
+
+[^4]: https://docs.astral.sh/uv/getting-started/installation/
