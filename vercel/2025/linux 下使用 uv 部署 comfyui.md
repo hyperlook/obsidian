@@ -5,7 +5,7 @@ tags:
   - comfyui
 description: 
 created: 2025-03-26 11:48
-modified: 2025-03-29T17:36:00+08:00
+modified: 2025-03-29T18:28:43+08:00
 draft: true
 slug: comfyui-uv
 ---
@@ -17,8 +17,17 @@ slug: comfyui-uv
    ![[nvidia-smi.png]]
  - 次要版本和向前兼容性确保了旧的 NVIDIA 驱动程序可以与较新的 CUDA 工具包一起使用
  > 比较复杂，普通用户只需按向后兼容，把驱动搞到新版即可
-### 显卡驱动安装
-我用的是 Arch Linux，安装比较简单
+### Arch Linux 下显卡驱动安装[^2]
+我用的是 Arch Linux，显卡是 4070s，查询命令
+```
+lspci -k -d ::03xx
+```
+
+属于属于 **Ada Lovelace** 架构
+（NV190/ADXXX 系列）, 选择[nvidia](https://archlinux.org/packages/?name=nvidia)包 安装比较简单
+```
+sudo pacman -S nvidia
+```
 
 ## CUDA 和 PyTorch
 ### CUDA Toolkit
@@ -53,3 +62,5 @@ ffff
 - cc[^1]
 
 [^1]: https://docs.nvidia.com/deploy/cuda-compatibility/
+
+[^2]: https://wiki.archlinuxcn.org/wiki/NVIDIA
