@@ -19,7 +19,7 @@ title: 获取应用在App Store的直链链接
 
 ### 如何获取苹果App Store的直接打开链接
 
-这里我们就需要用到[[itms-apps 苹果的私有 URL 方案]]
+这里我们就需要用到[[itms-apps]]
 
 苹果App Store的直接打开链接可以通过以下方式获得：
 

@@ -81,7 +81,7 @@ git clone https://github.com/comfyanonymous/ComfyUI.git
 	uv run python -c "import torch;print(torch.cuda.is_available());print(torch.version.cuda)"
 	```
 	![[test-pytorch.png]]
-	> 版本 12.4，与我们前面[[linux 下使用 uv 部署 comfyui#PyTorch 自带 CUDA 是什么？]] 看到的一致
+	> 版本 12.4，与我们前面[[comfyui-uv#PyTorch 自带 CUDA 是什么？]] 看到的一致
 - 切换 pytorch 版本
 	如果我们需要切换 pytorch 版本到 2.6，先卸载当前的
 	```bash
@@ -95,7 +95,7 @@ git clone https://github.com/comfyanonymous/ComfyUI.git
 	
 	![[install_pytorch_cuda26.png]]
 	 可以看到 pytorch已经切换到带cuda12.6 的版本
-	 > 这里我们并没有用 add 命令，因为额外的 --index-url，需要手动修改配置pyproject.toml，目前还有一点点依赖冲突问题，具体修改可参考[[linux 下使用 uv 部署 comfyui]]
+	 > 这里我们并没有用 add 命令，因为额外的 --index-url，需要手动修改配置pyproject.toml，目前还有一点点依赖冲突问题，具体修改可参考[[comfyui-uv]]
 ### 测试运行comfyui
 我们还是用 uv 来 run，这里我们始终没有激活虚拟环境，因为 uv run 的时候会自动调用前面创建的.venv 虚拟环境去跑。
 ```bash
