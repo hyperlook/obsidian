@@ -6,7 +6,7 @@ tags:
   - uv
 description: uv 是一个用 Rust 编写的 Python 包安装器和解析器。与传统的 pip 相比，它在速度和效率方面都有显著提升。对于 ComfyUI 这样依赖大量 Python 包的应用程序来说，使用 uv 可以显著缩短安装和依赖解析的时间，从而提高部署效率。
 created: 2025-03-26 11:48
-modified: 2025-03-29T22:55:35+08:00
+modified: 2025-03-30T13:25:10+08:00
 draft: false
 slug: comfyui-uv
 ---
@@ -102,7 +102,7 @@ git clone https://github.com/comfyanonymous/ComfyUI.git
 uv run main.py --base-directory ../data --listen 0.0.0.0
 ```
 ![[uv_run_comfyui.png]]
-> main.py 的具体参数，可以使用`--help`，也可以参考[[comfyui main.py 参数]]
+> main.py 的具体参数，可以使用`--help`，也可以参考[[comfyui main.py 参数|comfyui-main]]
 > 上面我们使用了--base-directory 切换了数据目录，包括模型、自定义节点，输入输出以及自定义配置工作流等等，便于我们数据的保存和 comfyui 的升级切换。
 
 ## comfyui-manager 插件安装

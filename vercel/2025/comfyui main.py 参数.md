@@ -7,7 +7,8 @@ tags:
 created: 2025-03-22 17:36
 modified: 2025-03-23T10:30:27+08:00
 permalink: comfyui-main
-aliases: []
+aliases:
+  - comfyui-main
 ---
 ![[comfyui-main-option.png]]
 
