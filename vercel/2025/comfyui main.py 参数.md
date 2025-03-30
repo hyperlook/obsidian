@@ -6,7 +6,7 @@ tags:
   - AI
 created: 2025-03-22 17:36
 modified: 2025-03-23T10:30:27+08:00
-slug: comfyui-main
+permalink: comfyui-main
 ---
 ![[comfyui-main-option.png]]
 

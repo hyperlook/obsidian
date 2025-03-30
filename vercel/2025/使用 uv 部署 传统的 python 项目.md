@@ -7,7 +7,7 @@ description: 经常逛github，看到喜欢的开源 python 项目，老想部�
 created: 2025-03-24 10:39
 modified: 2025-03-26T12:38:58+08:00
 draft: false
-slug: uv-python
+permalink: uv-python
 ---
 > 经常逛github，看到喜欢的开源 python 项目，老想部署玩玩，又偏爱 uv 来部署，记录个常规过程备忘
 
