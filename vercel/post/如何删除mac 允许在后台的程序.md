@@ -5,6 +5,7 @@ tags:
 description: 如何删除mac 允许在后台的程序很多app虽然已经卸载了，却留下垃圾不清理，很是烦人，如下图留在允许后台可运行中的垃圾
 slug: launch-daemons-agents
 title: 如何删除mac 允许在后台的程序
+permalink: post/launch-daemons-agents
 ---
 > [!important] 目录
 > 

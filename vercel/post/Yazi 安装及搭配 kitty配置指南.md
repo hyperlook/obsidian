@@ -6,6 +6,7 @@ tags:
   - yazi
 description: Yazi 配合 kitty ，实现快速下载服务器上文件 和 拷贝文本到本机剪切板
 slug: yazi-kitty
+permalink: post/yazi-kitty
 ---
 > [!important] 目录
 > 

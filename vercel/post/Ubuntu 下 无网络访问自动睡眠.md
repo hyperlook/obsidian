@@ -7,6 +7,7 @@ slug: Ubuntu-suspend
 title: Ubuntu 下 无网络访问自动睡眠
 modified: 2025-03-24T08:34:15+08:00
 created: 2025-03-23T18:21:47+08:00
+permalink: post/Ubuntu-suspend
 ---
 > [!important] 目录
 > 

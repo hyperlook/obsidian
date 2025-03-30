@@ -5,6 +5,9 @@ tags:
 description: mac 下 vim 拷贝粘贴无法共享到系统剪贴板，使用不便，特搜索解决记录方案，记录如下
 slug: mac-vim
 title: Mac 下 vim 共享系统剪贴板
+modified: 2025-03-30T11:27:32+08:00
+created: 2025-03-23T18:21:47+08:00
+permalink: post/mac-vim
 ---
 > [!important] 目录
 > 

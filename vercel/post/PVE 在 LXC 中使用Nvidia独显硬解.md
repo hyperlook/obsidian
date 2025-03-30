@@ -9,6 +9,7 @@ slug: pve-lxc-nvidia
 title: PVE 在 LXC 中使用Nvidia独显硬解
 modified: 2025-03-23T20:04:39+08:00
 created: 2025-03-23T18:21:46+08:00
+permalink: post/pve-lxc-nvidia
 ---
 > [!important] 目录
 > 

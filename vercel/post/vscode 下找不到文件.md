@@ -4,6 +4,7 @@ tags:
   - vscode
 description: 在.gitignore里添加了2个文件例外后，vscode 的资源管理器找不到该文件了，一番搜索解决后记录如下
 slug: vscode-gitignore
+permalink: post/vscode-gitignore
 ---
 > [!important] 目录
 > 

@@ -9,6 +9,7 @@ slug: Windows11-kms-activate
 title: Windows 11 的 KMS 激活
 modified: 2025-03-23T19:47:23+08:00
 created: 2025-03-23T18:21:47+08:00
+permalink: post/Windows11-kms-activate
 ---
 > [!important] 目录
 > 

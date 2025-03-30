@@ -4,6 +4,7 @@ title: mac 下转移微信的缓存目录
 modified: 2025-03-23T21:29:19+08:00
 created: 2025-03-23T18:21:47+08:00
 slug: mac-wechat-space
+permalink: post/mac-wechat-space
 ---
 > [!important] 目录
 > 

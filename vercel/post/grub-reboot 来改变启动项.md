@@ -6,6 +6,7 @@ tags:
 description: 我想通过 grub-reboot 来改变启动项， 帮我看下 Ubuntu 和 windows 对应的条目数为几
 slug: grub-reboot
 title: grub-reboot 来改变启动项
+permalink: post/grub-reboot
 ---
 > [!important] 目录
 > 
