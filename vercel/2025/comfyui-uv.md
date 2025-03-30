@@ -6,7 +6,7 @@ tags:
   - uv
 description: uv 是一个用 Rust 编写的 Python 包安装器和解析器。与传统的 pip 相比，它在速度和效率方面都有显著提升。对于 ComfyUI 这样依赖大量 Python 包的应用程序来说，使用 uv 可以显著缩短安装和依赖解析的时间，从而提高部署效率。
 created: 2025-03-26 11:48
-modified: 2025-03-30T14:01:18+08:00
+modified: 2025-03-30T14:19:15+08:00
 draft: false
 slug: comfyui-uv
 ---
@@ -32,7 +32,7 @@ sudo pacman -S nvidia
    我们安装完驱动，输入`nvidia-smi`就可以看到该驱动兼容的最高 cuda 版本
    ![[nvidia-smi.png]]
  - 次要版本和向前兼容性确保了旧的 NVIDIA 驱动程序可以与较新的 CUDA 工具包一起使用
- > 比较复杂，普通用户只需按向后兼容，把驱动搞到新版即可
+	 > 比较复杂，普通用户只需按向后兼容，把驱动搞到新版即可
 
 ## CUDA 和 PyTorch
 ### CUDA Toolkit
@@ -67,7 +67,7 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 git clone https://github.com/comfyanonymous/ComfyUI.git
 ```
-- comfyui 项目本身已经带 pyproject.toml，我们无需uv初始化`un init`
+- comfyui 项目本身已经带 pyproject.toml，我们无需uv初始化`uv init`
 ### comfyui 依赖安装  
 - 安装 Python 依赖，先 cd 到 ComfyUI 目录
 	```python
@@ -102,7 +102,7 @@ git clone https://github.com/comfyanonymous/ComfyUI.git
 uv run main.py --base-directory ../data --listen 0.0.0.0
 ```
 ![[uv_run_comfyui.png]]
-> main.py 的具体参数，可以使用`--help`，也可以参考[[comfyui-main|comfyui-main]]
+> main.py 的具体参数，可以使用`--help`，也可以参考[[main.py的具体参数|comfyui-main]];
 > 上面我们使用了--base-directory 切换了数据目录，包括模型、自定义节点，输入输出以及自定义配置工作流等等，便于我们数据的保存和 comfyui 的升级切换。
 
 ## comfyui-manager 插件安装
