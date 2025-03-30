@@ -102,7 +102,7 @@ git clone https://github.com/comfyanonymous/ComfyUI.git
 uv run main.py --base-directory ../data --listen 0.0.0.0
 ```
 ![[uv_run_comfyui.png]]
-> main.py 的具体参数，可以使用`--help`，也可以参考[[comfyui main.py 参数|comfyui-main]]
+> main.py 的具体参数，可以使用`--help`，也可以参考[[comfyui-main|comfyui-main]]
 > 上面我们使用了--base-directory 切换了数据目录，包括模型、自定义节点，输入输出以及自定义配置工作流等等，便于我们数据的保存和 comfyui 的升级切换。
 
 ## comfyui-manager 插件安装
