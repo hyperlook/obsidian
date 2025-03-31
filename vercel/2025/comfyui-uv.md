@@ -6,7 +6,7 @@ tags:
   - uv
 description: uv 是一个用 Rust 编写的 Python 包安装器和解析器。与传统的 pip 相比，它在速度和效率方面都有显著提升。对于 ComfyUI 这样依赖大量 Python 包的应用程序来说，使用 uv 可以显著缩短安装和依赖解析的时间，从而提高部署效率。
 created: 2025-03-26 11:48
-modified: 2025-03-31T08:21:23+08:00
+modified: 2025-03-31T16:12:55+08:00
 draft: false
 slug: comfyui-uv
 ---
